@@ -16,6 +16,11 @@ var colors = {
 }
 
 class Box extends React.Component{
+	shouldComponentUpdate(nextProps,nextState){
+		var fOpen = this.props.open != nextProps.open;
+		var fValue = this.props.value != nextProps.value;
+		return fOpen || fValue;
+	}
 	handleClick(e){
 		var {x,y,onClick} = this.props;
 		if(onClick){
