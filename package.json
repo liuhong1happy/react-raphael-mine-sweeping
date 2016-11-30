@@ -1,6 +1,6 @@
 {
   "name": "react-raphael-mine-sweeping",
-  "version": "0.8.0-rc1",
+  "version": "0.8.0-rc2",
   "description": "so easy! create mine sweeping game with react-raphael!",
   "main": "lib/index.js",
   "scripts": {

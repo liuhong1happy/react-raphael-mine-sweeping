@@ -14,7 +14,8 @@ class MineSweeping extends React.Component{
         this.state = {
             loaded: false,
 			models: [],
-			gameOver: false
+			gameOver: false,
+			gameWin: false
         }
     }
     componentDidMount(){
@@ -29,17 +30,19 @@ class MineSweeping extends React.Component{
 	handleClick(x,y){
 		var models = Utils.Fill(x,y);
 		var gameOver = Utils.gameOver;
+		var {mineCount} = this.props;
+		var closeSum = 0;
+		for(var i = 0;i < Utils.ySum;i++){
+			for(var j = 0;j < Utils.xSum;j++){
+				if(!models[i][j].open) closeSum = closeSum +1;
+			}
+		}
         this.setState({
 			gameOver: gameOver,
-			models: models
+			models: models,
+			gameWin: closeSum == mineCount
 		})
 		if(this.props.onClick){
-			var closeSum = 0;
-			for(var i = 0;i < Utils.ySum;i++){
-				for(var j = 0;j < Utils.xSum;j++){
-					if(!models[i][j].open) closeSum = closeSum +1;
-				}
-			}
 			this.props.onClick({
 				x: x,
 				y: y,
@@ -50,11 +53,13 @@ class MineSweeping extends React.Component{
 		}
 	}
 	replay(){
-		var models = Utils.Init();
+		var {xSize,ySize,mineCount} = this.props;
+		var models = Utils.Init(xSize,ySize,mineCount);
         this.setState({
 			loaded: true,
 			models: models,
-			gameOver: false
+			gameOver: false,
+			gameWin: false
 		})
 	}
     render(){
@@ -62,6 +67,7 @@ class MineSweeping extends React.Component{
 		var models = this.state.models;
 		var handleClick = this.handleClick;
 		var gameOver = this.state.gameOver;
+		var gameWin = this.state.gameWin;
 		var width = xSize*boxWidth;
 		var height = ySize*boxWidth;
         return (<Paper ref="paper" width={xSize*boxWidth} height={ySize*boxWidth}>
@@ -78,6 +84,7 @@ class MineSweeping extends React.Component{
 				})	
 			}
 			<Text x={width/2} y={height/2} text="Game Over" attr={{"fill": "red","font-size": 32 }} hide={!gameOver}/>
+			<Text x={width/2} y={height/2} text="Game Win" attr={{"fill": "green","font-size": 32 }} hide={!gameWin}/>
         </Paper>)
     }
 }
