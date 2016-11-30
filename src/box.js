@@ -42,6 +42,11 @@ class Box extends React.Component{
              mark: !this.state.mark
         })
     }
+    clearMark(){
+        this.setState({
+            mark: false
+        })
+    }
 	render(){
 		var {x,y,width,height,value,open} = this.props;
 		if(!open){

@@ -65,6 +65,11 @@ class MineSweeping extends React.Component{
 	replay(){
 		var {xSize,ySize,mineCount} = this.props;
 		var models = Utils.Init(xSize,ySize,mineCount);
+		for(var i = 0;i < Utils.ySum;i++){
+			for(var j = 0;j < Utils.xSum;j++){
+				this.refs["box-"+j+"-"+i].clearMark();
+			}
+		}
         this.setState({
 			loaded: true,
 			models: models,
@@ -86,7 +91,7 @@ class MineSweeping extends React.Component{
 					return (<Set key={pos}>
 						{
 							model.map(function(ele){
-								return (<Box key={ ele.x+'-'+ele.y } {...ele}  onClick={handleClick} width={boxWidth} height={boxWidth}/>);
+								return (<Box ref={"box-"+ele.x+'-'+ele.y} key={ ele.x+'-'+ele.y } {...ele}  onClick={handleClick} width={boxWidth} height={boxWidth}/>);
 							})
 						}	
 					</Set>)
