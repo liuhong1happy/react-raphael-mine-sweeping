@@ -63,13 +63,14 @@ ReactDOM.render(<div>
 
 #### All Scrawl Props
 
-- width `number` width of the canvas
-- height `number` height of the canvas
-- attr `object` attr of the scrawl path, you can see [http://dmitrybaranovskiy.github.io/raphael/reference.html#Element.attr](http://dmitrybaranovskiy.github.io/raphael/reference.html#Element.attr)
+- mineCount `number` mine count of the game
+- xSize `number` column count of the boxs
+- ySize `number`  row count of the boxs
+- onClick `function` click event of the game `context=>{x,y,models,openSum,closeSum}`
 
 #### All Scrawl Ref
 
-- clear `function` clear all scrawl path
+- replay `function` replay the game
 
 ## Contact
 
