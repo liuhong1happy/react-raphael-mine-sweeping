@@ -7,17 +7,17 @@ class MineSweepingApp extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			mineCount: 60,
-			xSize: 24,
-			ySize: 24,
-			openSum: 24 * 24,
+			mineCount: 90,
+			xSize: 30,
+			ySize: 20,
+			openSum: 30 * 20,
 			closeSum: 0
 		}
 	}
     replay(){
         this.refs.mine.replay();
 		this.setState({
-			openSum: 24 * 24,
+			openSum: 30 * 20,
 			closeSum: 0
 		})
     }

@@ -37,10 +37,20 @@ class MineSweeping extends React.Component{
 				if(!models[i][j].open) closeSum = closeSum +1;
 			}
 		}
+		var gameWin = closeSum == mineCount;
+		if(this.state.gameOver || this.state.gameWin) return;
+		if(gameOver){
+			var over = this.refs.over.getElement();
+			over.toFront();
+		}
+		if(gameWin){
+			var win = this.refs.win.getElement();
+			win.toFront();
+		}
         this.setState({
 			gameOver: gameOver,
 			models: models,
-			gameWin: closeSum == mineCount
+			gameWin: gameWin
 		})
 		if(this.props.onClick){
 			this.props.onClick({
@@ -83,8 +93,8 @@ class MineSweeping extends React.Component{
 					
 				})	
 			}
-			<Text x={width/2} y={height/2} text="Game Over" attr={{"fill": "red","font-size": 32 }} hide={!gameOver}/>
-			<Text x={width/2} y={height/2} text="Game Win" attr={{"fill": "green","font-size": 32 }} hide={!gameWin}/>
+			<Text ref="over" x={width/2} y={height/2} text="Game Over" attr={{"fill": "red","font-size": 32 }} hide={!gameOver}/>
+			<Text ref="win" x={width/2} y={height/2} text="Game Win" attr={{"fill": "green","font-size": 32 }} hide={!gameWin}/>
         </Paper>)
     }
 }
