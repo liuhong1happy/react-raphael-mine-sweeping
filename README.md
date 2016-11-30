@@ -1,5 +1,8 @@
 # react-raphael-mine-sweeping
 
+[![Version](https://img.shields.io/npm/v/react-raphael-mine-sweeping.svg)](https://www.npmjs.com/package/react-raphael-mine-sweeping)
+[![Downloads](https://img.shields.io/npm/dt/react-raphael-mine-sweeping.svg)](https://www.npmjs.com/package/react-raphael-mine-sweeping)
+
 so easy! create mine sweeping game with react-raphael!
 
 ## Install
