@@ -7,6 +7,9 @@ so easy! create mine sweeping game with react-raphael!
 
 ## Install
 
+	# or specify the externals in webpack config
+	npm install --save raphael
+	# install react-raphael-mine-sweeping in your react-raphael-mine-sweeping project
     npm install --save react-raphael-mine-sweeping
     
 ## Quickly Start
@@ -64,14 +67,14 @@ ReactDOM.render(<div>
 
 ## API
 
-#### All Scrawl Props
+#### All Mine Sweeping Props
 
 - mineCount `number` mine count of the game
 - xSize `number` column count of the boxs
 - ySize `number`  row count of the boxs
 - onClick `function` click event of the game `context=>{x,y,models,openSum,closeSum}`
 
-#### All Scrawl Ref
+#### All Mine Sweeping Ref
 
 - replay `function` replay the game
 
